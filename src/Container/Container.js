@@ -45,7 +45,6 @@ export const Container = () => {
       setProgress((currentStep - 1) * (100 / 10));
     }
 
-    // Update component rendering based on current step
     switch (currentStep) {
       case 0:
         setStartComponent(true);

@@ -56,17 +56,22 @@ export const FileUpload = ({ increaseProgress }) => {
         )}
       </div>
       {!isSubmitted ? (
-        <div className="file-upload-buton">
-          <button className="custom-file-upload">Upload Image</button>
+        <>
+          <label htmlFor="fileInput" className="custom-file-upload">
+            Upload Image
+          </label>
           <input
             ref={fileInputRef}
             id="fileInput"
             type="file"
             onChange={handleFileChange}
+            style={{ display: "none" }}
           />
-        </div>
+        </>
       ) : (
-        <button onClick={handleSubmitDetails}>Submit</button>
+        <label className="custom-file-upload" onClick={handleSubmitDetails}>
+          Submit
+        </label>
       )}
     </div>
   );

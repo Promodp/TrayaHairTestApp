@@ -1,9 +1,9 @@
 import React from "react";
-import { useMyContext } from "../../Container/ContextProvider";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./DetailComponent.css";
 
 export const DetailComponent = () => {
-  const { userData } = useMyContext();
+  const { userData } = useTrayaAppContext();
   return (
     <div className="detail-container">
       <header className="header">

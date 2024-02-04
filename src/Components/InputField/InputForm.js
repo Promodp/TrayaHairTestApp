@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMyContext } from "../../Container/ContextProvider";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./InputForm.css";
 
 export const InputForm = ({
@@ -8,7 +8,7 @@ export const InputForm = ({
   setGenderSelection,
   setInputFormSelection,
 }) => {
-  const { updateUserData } = useMyContext();
+  const { updateUserData } = useTrayaAppContext();
 
   const [steps, setSteps] = useState([
     {},

@@ -1,16 +1,14 @@
 import React from "react";
-import { useMyContext } from "../../Container/ContextProvider";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
 
 import "./StagesCard.css";
 
 export const StagesCard = ({
-  setSelectedStage,
   setStageSelection,
   setRadioInputSelection,
   increaseProgress,
-  decreaseProgress,
 }) => {
-  const { userData, updateUserData } = useMyContext();
+  const { updateUserData } = useTrayaAppContext();
 
   const stages = [
     {
@@ -32,7 +30,6 @@ export const StagesCard = ({
   ];
 
   const handleClick = (text) => {
-    setSelectedStage(text);
     setStageSelection(false);
     setRadioInputSelection(true);
     increaseProgress();

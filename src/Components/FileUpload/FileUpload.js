@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useMyContext } from "../../Container/ContextProvider";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
+import "./FileUpload.css";
 
 export const FileUpload = ({ increaseProgress }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
-  const { updateUserData } = useMyContext();
+  const { updateUserData } = useTrayaAppContext();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -28,6 +29,7 @@ export const FileUpload = ({ increaseProgress }) => {
   };
   const selfieImage =
     "https://form.traya.health/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fselfie.af7a7f3c.png&w=256&q=75";
+
   return (
     <div>
       <p>
@@ -38,15 +40,9 @@ export const FileUpload = ({ increaseProgress }) => {
         <p>Doctors - To analyze and prescribe your kit's dosage.</p>
         <p>Hair Coaches - To track your hair progress.</p>
       </div>
-      <div>
+      <div className="image-style">
         {selectedFile?.length > 1 ? (
           <img
-            style={{
-              width: 200,
-              height: 200,
-              padding: "10px",
-              border: "2px dotted #000000",
-            }}
             src={selectedFile}
             alt="Selected File"
             onClick={handleImageClick}
@@ -54,59 +50,23 @@ export const FileUpload = ({ increaseProgress }) => {
         ) : (
           <img
             src={selfieImage}
-            style={{
-              width: 200,
-              height: 200,
-              padding: "10px",
-              border: "2px dotted #000000",
-            }}
             alt="Default Image"
             onClick={handleImageClick}
           />
         )}
       </div>
       {!isSubmitted ? (
-        <div>
-          <label
-            style={{
-              display: "inline-block",
-              padding: "10px",
-              cursor: "pointer",
-              backgroundColor: "rgb(42 43 42)",
-              color: "white",
-              borderRadius: "5px",
-              transition: "background-color 0.3s",
-              width: "200px",
-            }}
-            htmlFor="fileInput"
-            className="custom-file-upload"
-          >
-            Upload Image
-          </label>
+        <div className="file-upload-buton">
+          <button className="custom-file-upload">Upload Image</button>
           <input
             ref={fileInputRef}
             id="fileInput"
             type="file"
             onChange={handleFileChange}
-            style={{ display: "none" }}
           />
         </div>
       ) : (
-        <button
-          style={{
-            display: "inline-block",
-            padding: "10px",
-            cursor: "pointer",
-            backgroundColor: "rgb(42 43 42)",
-            color: "white",
-            borderRadius: "5px",
-            transition: "background-color 0.3s",
-            width: "200px",
-          }}
-          onClick={handleSubmitDetails}
-        >
-          Submit
-        </button>
+        <button onClick={handleSubmitDetails}>Submit</button>
       )}
     </div>
   );

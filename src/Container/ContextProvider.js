@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-const MyContext = createContext();
+const TrayaAppContext = createContext();
 
 const ContextProvider = ({ children }) => {
   const [userData, setUserData] = useState({
@@ -21,15 +21,15 @@ const ContextProvider = ({ children }) => {
   };
 
   return (
-    <MyContext.Provider value={{ userData, updateUserData }}>
+    <TrayaAppContext.Provider value={{ userData, updateUserData }}>
       {children}
-    </MyContext.Provider>
+    </TrayaAppContext.Provider>
   );
 };
 
-const useMyContext = () => {
-  const context = useContext(MyContext);
+const useTrayaAppContext = () => {
+  const context = useContext(TrayaAppContext);
   return context;
 };
 
-export { ContextProvider, useMyContext };
+export { ContextProvider, useTrayaAppContext };

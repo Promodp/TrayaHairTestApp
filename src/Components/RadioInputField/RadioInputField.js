@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMyContext } from "../../Container/ContextProvider";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./RadioInputField.css";
 
 export const RadioInputField = ({
@@ -11,10 +11,8 @@ export const RadioInputField = ({
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
-  const [showSecondSet, setShowSecondSet] = useState(true);
-  const { updateUserData } = useMyContext();
+  const { updateUserData } = useTrayaAppContext();
 
-  console.log(currentStep, "stepss");
   const radioOptions1 = [
     "Mother or anyone from mother's side of the family",
     "Father or anyone from father's side of the family",
@@ -38,7 +36,6 @@ export const RadioInputField = ({
 
   const handleOption1Change = (event) => {
     setSelectedOption1(event.target.value);
-    setShowSecondSet(false);
     increaseProgress();
     updateUserData({
       familyHistory: event.target.value,

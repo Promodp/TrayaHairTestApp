@@ -64,17 +64,17 @@ button {
 }
 
 .button span {
-  text-decoration: underline; /* Add underline to the text */
+  text-decoration: underline;
 }
 
 .prev-arrow::before {
-  content: "\2190"; /* Unicode character for left arrow */
+  content: "\2190";
   margin-right: 8px;
-  font-size: 20px; /* Adjust the font size to increase the arrow size */
+  font-size: 20px;
 }
 
 .next-arrow::after {
-  content: "\2192"; /* Unicode character for right arrow */
+  content: "\2192";
   margin-left: 8px;
   margin-right: 0;
 }
@@ -105,8 +105,8 @@ button {
 }
 .progress-bar {
   height: 8px;
-  width: 0; /* Start with zero width */
-  background-color: #9bba70; /* Color for the progress made section */
+  width: 0;
+  background-color: #9bba70;
   position: absolute;
   top: 0;
   left: 0;
@@ -124,9 +124,7 @@ button {
 
 .button-single {
   display: flex;
-  /* flex-direction: row; */
   justify-content: end;
-  /* align-items: center; */
   width: 80%;
 }
 @media only screen and (max-width: 767px) {

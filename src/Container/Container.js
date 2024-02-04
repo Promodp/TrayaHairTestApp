@@ -29,10 +29,6 @@ export const Container = () => {
   const [radioInputSelection, setRadioInputSelection] = useState(false);
   const [fileUploadSelection, setFileUploadSelection] = useState(false);
 
-  //
-  const [selectedGender, setSelectedGender] = useState("");
-  const [selectedStage, setSelectedStage] = useState("");
-
   const increaseProgress = () => {
     if (currentStep <= 11) {
       setCurrentStep(currentStep + 1);
@@ -42,7 +38,7 @@ export const Container = () => {
       setProgress((currentStep + 1) * (100 / 11));
     }
   };
-  console.log(currentStep, "currentStep");
+
   const decreaseProgress = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
@@ -52,13 +48,12 @@ export const Container = () => {
     // Update component rendering based on current step
     switch (currentStep) {
       case 0:
+        setStartComponent(true);
         setInputFormSelection(false);
         setGenderSelection(false);
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
-        setStartComponent(true);
         break;
       case 1:
         setInputFormSelection(true);
@@ -66,7 +61,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 2:
@@ -75,7 +69,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 3:
@@ -84,7 +77,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 4:
@@ -93,7 +85,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 5:
@@ -102,7 +93,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 6:
@@ -111,7 +101,6 @@ export const Container = () => {
         setStageSelection(true);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 7:
@@ -120,7 +109,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(true);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 8:
@@ -129,7 +117,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(true);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 9:
@@ -138,7 +125,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(true);
         setFileUploadSelection(false);
-
         setStartComponent(false);
         break;
       case 10:
@@ -147,7 +133,6 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(true);
-
         setStartComponent(false);
         break;
       case 11:
@@ -156,17 +141,14 @@ export const Container = () => {
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(true);
-
         setStartComponent(false);
         break;
-      // Add more cases for other steps as needed
       default:
         setInputFormSelection(true);
         setGenderSelection(false);
         setStageSelection(false);
         setRadioInputSelection(false);
         setFileUploadSelection(false);
-
         break;
     }
   };
@@ -286,7 +268,6 @@ export const Container = () => {
       )}
       {genderSelection && (
         <GenderComponent
-          setSelectedGender={setSelectedGender}
           setGenderSelection={setGenderSelection}
           setStageSelection={setStageSelection}
           increaseProgress={increaseProgress}
@@ -295,7 +276,6 @@ export const Container = () => {
       )}
       {stageSelection && (
         <StagesCard
-          setSelectedStage={setSelectedStage}
           setRadioInputSelection={setRadioInputSelection}
           setStageSelection={setStageSelection}
           increaseProgress={increaseProgress}
@@ -321,5 +301,3 @@ export const Container = () => {
     </div>
   );
 };
-
-// export default Container;

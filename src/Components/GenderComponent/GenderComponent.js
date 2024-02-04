@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { useMyContext } from "../../Container/ContextProvider";
+import React from "react";
+import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./GenderComponent.css";
 
 export const GenderComponent = ({
-  setSelectedGender,
   setGenderSelection,
   setStageSelection,
   increaseProgress,
 }) => {
-  const { updateUserData } = useMyContext();
+  const { updateUserData } = useTrayaAppContext();
   const cardGender = [{ text: "Male" }, { text: "Female" }];
 
   const handleClick = (text) => {
-    setSelectedGender(text);
     setGenderSelection(false);
     setStageSelection(true);
     increaseProgress();

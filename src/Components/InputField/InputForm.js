@@ -36,15 +36,13 @@ export const InputForm = ({
       } else {
         updatedSteps[currentStep].error = "Please enter a valid phone number";
       }
+    } else if (currentStep === 3) {
+      updatedSteps[currentStep].value = value;
+      updatedSteps[currentStep].error = "";
     } else if (currentStep === 4) {
-      if (parseInt(value, 10) > 18 || value === "") {
-        updatedSteps[currentStep].value = value;
-        updatedSteps[currentStep].error = "";
-      } else {
-        updatedSteps[currentStep].error = "Please enter a valid age";
-      }
+      updatedSteps[currentStep].value = value;
+      updatedSteps[currentStep].error = "";
     }
-
     setSteps(updatedSteps);
   };
 
@@ -61,20 +59,13 @@ export const InputForm = ({
         }
         break;
       case 2:
-        if (!steps[currentStep].value.trim().match(/^\d{10}$/)) {
+        if (!steps[currentStep].value.trim().match(/^\d{0,10}$/)) {
           updatedSteps[currentStep].error =
-            "Invalid phone number. Please enter a 10-digit number.";
+            "Invalid phone number. Please enter a valid number (max 10 characters).";
           valid = false;
         }
         break;
-      case 4:
-        const ageValue = parseInt(steps[currentStep].value);
-        if (ageValue <= 18) {
-          updatedSteps[currentStep].error =
-            "Age must be a number greater than 18.";
-          valid = false;
-        }
-        break;
+      // Need to check on the email and age validation
       default:
         break;
     }
@@ -84,7 +75,6 @@ export const InputForm = ({
   };
 
   const handleNextClick = () => {
-    console.log(validateInputs(), "validateInputs()");
     if (validateInputs()) {
       increaseProgress();
       if (currentStep === 4) {
@@ -114,7 +104,7 @@ export const InputForm = ({
               type="text"
               id={`stepInput-${currentStep}`}
               value={steps[currentStep].value}
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               className="input-field"
               placeholder={steps[currentStep].label}
             />

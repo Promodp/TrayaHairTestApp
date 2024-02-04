@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./DetailComponent.css";
+import { useNavigate } from "react-router-dom";
 
 export const DetailComponent = () => {
+  const navigate = useNavigate();
   const { userData } = useTrayaAppContext();
+  useEffect(() => {
+    if (!userData.uploadedImage) {
+      navigate("/");
+    }
+  }, [userData]);
   return (
     <div className="detail-container">
       <header className="header">
@@ -62,7 +69,7 @@ export const DetailComponent = () => {
               </div>
             </div>
             <div className="uploaded-images">
-              <div>Uploaded Image</div>
+              <div className="text-style">Uploaded Image</div>
               <div>
                 <img src={userData.uploadedImage} alt="Selected File" />
               </div>

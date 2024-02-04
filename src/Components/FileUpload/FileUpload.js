@@ -42,17 +42,9 @@ export const FileUpload = ({ increaseProgress }) => {
       </div>
       <div className="image-style">
         {selectedFile?.length > 1 ? (
-          <img
-            src={selectedFile}
-            alt="Selected File"
-            onClick={handleImageClick}
-          />
+          <img src={selectedFile} onClick={handleImageClick} alt="" />
         ) : (
-          <img
-            src={selfieImage}
-            alt="Default Image"
-            onClick={handleImageClick}
-          />
+          <img src={selfieImage} onClick={handleImageClick} alt="" />
         )}
       </div>
       {!isSubmitted ? (

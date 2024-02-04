@@ -67,6 +67,8 @@ export const RadioInputField = ({
         return <span>Do you have dandruf?</span>;
       case 9:
         return <span>How well do you sleep??</span>;
+      default:
+        break;
     }
   };
 

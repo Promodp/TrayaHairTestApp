@@ -6,17 +6,20 @@ import { useNavigate } from "react-router-dom";
 export const DetailComponent = () => {
   const navigate = useNavigate();
   const { userData } = useTrayaAppContext();
+
   useEffect(() => {
     if (!userData.uploadedImage) {
       navigate("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
+
   return (
     <div className="detail-container">
       <header className="header">
         <img
           src="https://form.traya.health/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftraya.a5a9cff0.png&w=96&q=75"
-          alt="Traya Logo"
+          alt=""
           className="logo"
         />
       </header>
@@ -24,7 +27,7 @@ export const DetailComponent = () => {
         <div className="centered-image-container">
           <img
             src="https://traya.health/cdn/shop/files/Rectangle_5_1.png?v=1675154983"
-            alt="Centered Image"
+            alt=""
             className="centered-image"
           />
           <div className="text-section">
@@ -71,7 +74,7 @@ export const DetailComponent = () => {
             <div className="uploaded-images">
               <div className="text-style">Uploaded Image</div>
               <div>
-                <img src={userData.uploadedImage} alt="Selected File" />
+                <img src={userData.uploadedImage} alt="" />
               </div>
             </div>
           </div>

@@ -1,0 +1,260 @@
+/* .detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #a5c174;
+}
+
+.header {
+  height: 6rem;
+  background-color: #414042;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 96px;
+  height: auto;
+  margin-left: 16px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-image {
+  width: 80%;
+  height: 94vh;
+}
+
+.text-section {
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 79%;
+}
+
+.assessment {
+  color: #414042;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.divider {
+  width: 97%;
+  height: 1px;
+  background-color: #414042;
+  margin: 5px;
+}
+
+.diagnosis {
+  color: #414042;
+  font-size: 30px;
+  text-align: center;
+  height: 23rem;
+  margin-top: 0px;
+  border-bottom: 0.480769px solid #a5c174;
+  padding-bottom: 6px;
+  line-height: 20px;
+  width: 98%;
+
+  display: flex;
+  p {
+    font-weight: 400;
+    font-size: 17px;
+  }
+  span {
+    font-weight: 400;
+    font-size: 30px;
+    font-size: 15px;
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.user-detail {
+  display: flex;
+  flex-direction: column;
+  width: 88rem;
+}
+
+.random-images {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.small-images {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.uploaded-images {
+  width: 200;
+  height: 200;
+  padding: "10px";
+} */
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #a5c174;
+}
+
+.header {
+  height: 6rem;
+  background-color: #414042;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 96px;
+  height: auto;
+  margin-left: 16px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-image {
+  width: 80%;
+  height: 94vh;
+}
+
+.text-section {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 79%;
+}
+
+.assessment {
+  color: #414042;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.divider {
+  width: 97%;
+  height: 1px;
+  background-color: #414042;
+  margin: 5px;
+}
+
+.diagnosis {
+  color: #414042;
+  font-size: 30px;
+  text-align: center;
+  height: 16rem;
+  margin-top: 0px;
+  border-bottom: 0.480769px solid #a5c174;
+  padding-bottom: 6px;
+  line-height: 16px;
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+}
+
+.details-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-detail,
+.other-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-detail {
+  flex-basis: 35%;
+}
+.other-detail {
+  flex-basis: 65%;
+}
+.user-detail h4,
+.other-detail h4 {
+  margin-bottom: 10px;
+  color: black;
+}
+.user-detail p {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: start;
+  width: 64px auto;
+  width: 68px;
+  margin: 0px;
+}
+.other-detail p {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: start;
+  width: 64px auto;
+  width: 128px;
+  margin: 0px;
+}
+.user-detail span {
+  margin-bottom: 9px;
+  font-size: 15px;
+  display: flex;
+  align-content: space-around;
+  flex-direction: row;
+  width: 213px;
+}
+.other-detail span {
+  margin-bottom: 9px;
+  font-size: 15px;
+  display: flex;
+  align-content: space-around;
+  flex-direction: row;
+  width: 403px;
+}
+
+.uploaded-images {
+  width: 274px;
+  height: 187px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}

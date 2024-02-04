@@ -1,0 +1,31 @@
+.start-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 3.75rem;
+  line-height: 1;
+  color: #4b5563;
+  font-weight: 700;
+  text-align: center;
+}
+h4 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #374151;
+  text-align: center;
+}
+.take-test {
+  background-color: #414042;
+  color: #ffffff;
+  margin-top: 34px;
+  border-radius: 10%;
+  width: 21rem;
+  border-radius: 5px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

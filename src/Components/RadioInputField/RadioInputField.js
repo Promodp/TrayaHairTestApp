@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
+import {
+  radioOptions1,
+  radioOptions2,
+  radioOptions3,
+  Text,
+} from "../../Helper/Helper";
+
 import "./RadioInputField.css";
 
 export const RadioInputField = ({
@@ -12,27 +19,6 @@ export const RadioInputField = ({
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
   const { updateUserData } = useTrayaAppContext();
-
-  const radioOptions1 = [
-    "Mother or anyone from mother's side of the family",
-    "Father or anyone from father's side of the family",
-    "From both mother and father",
-    "None",
-  ];
-
-  const radioOptions2 = [
-    "No",
-    "Yes, mild that comes and goes",
-    "Yes, heavy dandruff that sticks to the scalp",
-    "I have Psoriasis",
-    "I have Seborrheic Dermatitis",
-  ];
-
-  const radioOptions3 = [
-    "Very peacefully for 6 to 8 hours",
-    "Disturbed sleep, I wake up at least one time during the night",
-    "Have difficulty falling asleep",
-  ];
 
   const handleOption1Change = (event) => {
     setSelectedOption1(event.target.value);
@@ -62,11 +48,11 @@ export const RadioInputField = ({
   const getLable = () => {
     switch (currentStep) {
       case 7:
-        return <span>Do you have a family history of hair loss?</span>;
+        return <span>{Text.RADIO_LABEL_1}</span>;
       case 8:
-        return <span>Do you have dandruf?</span>;
+        return <span>{Text.RADIO_LABEL_2}</span>;
       case 9:
-        return <span>How well do you sleep??</span>;
+        return <span>{Text.RADIO_LABEL_3}</span>;
       default:
         break;
     }

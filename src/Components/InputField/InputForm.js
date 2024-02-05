@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
+import { Text } from "../../Helper/Helper";
+
 import "./InputForm.css";
 
 export const InputForm = ({
@@ -12,10 +14,10 @@ export const InputForm = ({
 
   const [steps, setSteps] = useState([
     {},
-    { label: "Before we start, can we get your name", value: "", error: "" },
-    { label: "Phone Number", value: "", error: "" },
-    { label: "Email", value: "", error: "" },
-    { label: "How old are you?", value: "", error: "" },
+    { label: Text.LABEL_1, value: "", error: "" },
+    { label: Text.LABEL_2, value: "", error: "" },
+    { label: Text.LABEL_3, value: "", error: "" },
+    { label: Text.LABEL_4, value: "", error: "" },
   ]);
 
   const handleChange = (event) => {
@@ -27,14 +29,14 @@ export const InputForm = ({
         updatedSteps[currentStep].value = value;
         updatedSteps[currentStep].error = "";
       } else {
-        updatedSteps[currentStep].error = "Please enter a valid name";
+        updatedSteps[currentStep].error = Text.LABEL_5;
       }
     } else if (currentStep === 2) {
       if (/^[0-9]{0,10}$/.test(value) || value === "") {
         updatedSteps[currentStep].value = value;
         updatedSteps[currentStep].error = "";
       } else {
-        updatedSteps[currentStep].error = "Please enter a valid phone number";
+        updatedSteps[currentStep].error = Text.LABEL_6;
       }
     } else if (currentStep === 3) {
       updatedSteps[currentStep].value = value;
@@ -53,15 +55,13 @@ export const InputForm = ({
     switch (currentStep) {
       case 1:
         if (!steps[currentStep].value.trim().match(/^[a-zA-Z ]+$/)) {
-          updatedSteps[currentStep].error =
-            "Invalid name. Please enter a valid name.";
+          updatedSteps[currentStep].error = Text.LABEL_7;
           valid = false;
         }
         break;
       case 2:
         if (!steps[currentStep].value.trim().match(/^\d{0,10}$/)) {
-          updatedSteps[currentStep].error =
-            "Invalid phone number. Please enter a valid number (max 10 characters).";
+          updatedSteps[currentStep].error = Text.LABEL_8;
           valid = false;
         }
         break;
@@ -116,7 +116,7 @@ export const InputForm = ({
               className="next-button"
               onClick={handleNextClick}
             >
-              <span>NEXT →</span>
+              <span>{Text.LABEL_9}</span>
             </button>
           </div>
         )}

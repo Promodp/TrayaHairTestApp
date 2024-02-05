@@ -5,6 +5,7 @@ import { StagesCard } from "../Components/StagesCard/StagesCard";
 import { RadioInputField } from "../Components/RadioInputField/RadioInputField";
 import { FileUpload } from "../Components/FileUpload/FileUpload";
 import { StartComponent } from "../Components/StartComponent/StartComponent";
+import { Color, Text, ImageUrl, highlightCard } from "../Helper/Helper";
 import "./Container.css";
 
 export const Container = () => {
@@ -14,8 +15,6 @@ export const Container = () => {
     { text: "Your Lifestyle" },
     { text: "Health Assessment" },
   ];
-  const logoUrl =
-    "https://form.traya.health/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftraya.a5a9cff0.png&w=96&q=75";
 
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
@@ -163,43 +162,12 @@ export const Container = () => {
     setStartComponent(true);
   };
 
-  const highlightCard = (index) => {
-    const highlightedColor = "#9bba70";
-    const nonHighlightedColor = "#e5e7eb";
-    const textColorWhite = "white";
-    const textColorBlack = "black";
-
-    if (currentStep <= 4) {
-      return {
-        background: index === 0 ? highlightedColor : nonHighlightedColor,
-        color: index === 0 ? textColorWhite : textColorBlack,
-      };
-    } else if (currentStep <= 6) {
-      return {
-        background: index === 1 ? highlightedColor : nonHighlightedColor,
-        color: index === 1 ? textColorWhite : textColorBlack,
-      };
-    } else if (currentStep <= 8) {
-      return {
-        background: index === 2 ? highlightedColor : nonHighlightedColor,
-        color: index === 2 ? textColorWhite : textColorBlack,
-      };
-    } else {
-      return {
-        background: index === 3 ? highlightedColor : nonHighlightedColor,
-        color: index === 3 ? textColorWhite : textColorBlack,
-      };
-    }
-  };
-
   return (
     <div className="App">
       <div className="App-header">
         <div>
-          <img src={logoUrl} className="App-logo" alt="logo" />
-          <p className="logo-description">
-            This hair test is co-created with doctors
-          </p>
+          <img src={ImageUrl.LOGO_URL} className="App-logo" alt="logo" />
+          <p className="logo-description">{Text.LOGO_TEXT}</p>
         </div>
       </div>
       {startComponent && (
@@ -215,11 +183,11 @@ export const Container = () => {
         >
           {currentStep >= 2 && (
             <button className="button prev-arrow" onClick={decreaseProgress}>
-              <span>Previous</span>
+              <span>{Text.PRE_BUTTON}</span>
             </button>
           )}
           <button className="button" onClick={existHandling}>
-            <span>Exit</span>
+            <span>{Text.EXIT_BUTTON}</span>
           </button>
         </div>
       )}
@@ -230,8 +198,8 @@ export const Container = () => {
               className="cards"
               key={item.text}
               style={{
-                background: highlightCard(index).background,
-                color: highlightCard(index).color,
+                background: highlightCard(index, currentStep).background,
+                color: highlightCard(index, currentStep).color,
               }}
             >
               <span>{item.text}</span>

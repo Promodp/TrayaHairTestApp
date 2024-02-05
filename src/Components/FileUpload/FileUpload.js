@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
+import { ImageUrl, Text } from "../../Helper/Helper";
 import "./FileUpload.css";
 
 export const FileUpload = ({ increaseProgress }) => {
@@ -23,34 +24,34 @@ export const FileUpload = ({ increaseProgress }) => {
   const handleImageClick = () => {
     fileInputRef.current.click();
   };
+
   const handleSubmitDetails = () => {
     increaseProgress();
     navigate("/report-detail");
   };
-  const selfieImage =
-    "https://form.traya.health/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fselfie.af7a7f3c.png&w=256&q=75";
 
   return (
     <div>
       <p>
-        <b> Upload your scalp photo.</b>
-        <br /> After you place the order, this photo will be used by:
+        <b>{Text.UPLOAD_1}</b>
+        <br />
+        {Text.UPLOAD_2}
       </p>
       <div>
-        <p>Doctors - To analyze and prescribe your kit's dosage.</p>
-        <p>Hair Coaches - To track your hair progress.</p>
+        <p>{Text.UPLOAD_3}</p>
+        <p>{Text.UPLOAD_4}</p>
       </div>
       <div className="image-style">
         {selectedFile?.length > 1 ? (
           <img src={selectedFile} onClick={handleImageClick} alt="" />
         ) : (
-          <img src={selfieImage} onClick={handleImageClick} alt="" />
+          <img src={ImageUrl.SELFIE_IMG} onClick={handleImageClick} alt="" />
         )}
       </div>
       {!isSubmitted ? (
         <>
           <label htmlFor="fileInput" className="custom-file-upload">
-            Upload Image
+            {Text.UPLOAD_5}
           </label>
           <input
             ref={fileInputRef}
@@ -62,7 +63,7 @@ export const FileUpload = ({ increaseProgress }) => {
         </>
       ) : (
         <label className="custom-file-upload" onClick={handleSubmitDetails}>
-          Submit
+          {Text.UPLOAD_6}
         </label>
       )}
     </div>

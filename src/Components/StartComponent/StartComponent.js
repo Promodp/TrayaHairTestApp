@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "../../Helper/Helper";
 import "./StartComponent.css";
 
 export const StartComponent = ({
@@ -13,11 +14,11 @@ export const StartComponent = ({
   };
   return (
     <div className="start-container">
-      <h2>Hey there!</h2>
-      <h4>Lets take the Traya hair test.</h4>
+      <h2>{Text.START_1}</h2>
+      <h4>{Text.START_2}</h4>
       <div>
         <button type="button" className="take-test" onClick={handleTakeTest}>
-          <span>TAKE HAIR TEST</span>
+          <span>{Text.START_3}</span>
         </button>
       </div>
     </div>

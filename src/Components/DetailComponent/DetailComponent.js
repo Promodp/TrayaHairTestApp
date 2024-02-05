@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
 import "./DetailComponent.css";
 import { useNavigate } from "react-router-dom";
+import { ImageUrl, Text } from "../../Helper/Helper";
 
 export const DetailComponent = () => {
   const navigate = useNavigate();
@@ -11,68 +12,63 @@ export const DetailComponent = () => {
     if (!userData.uploadedImage) {
       navigate("/");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userData]);
 
   return (
     <div className="detail-container">
       <header className="header">
-        <img
-          src="https://form.traya.health/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftraya.a5a9cff0.png&w=96&q=75"
-          alt=""
-          className="logo"
-        />
+        <img src={ImageUrl.DETAIL_PAGE_URL_1} alt="" className="logo" />
       </header>
       <div className="content">
         <div className="centered-image-container">
           <img
-            src="https://traya.health/cdn/shop/files/Rectangle_5_1.png?v=1675154983"
+            src={ImageUrl.DETAIL_PAGE_URL_2}
             alt=""
             className="centered-image"
           />
           <div className="text-section">
             <div className="assessment">
-              <span>Assessment Report</span>
+              <span>{Text.ASSESMENT}</span>
               <div className="divider"></div>
             </div>
             <div className="diagnosis">
               <div className="user-detail">
-                <h4>Your Details</h4>
+                <h4>{Text.DETAIL}</h4>
                 <span>
-                  <p>Name:</p> {userData.name}
+                  <p>{Text.NAME}</p> {userData.name}
                 </span>
                 <span>
-                  <p>Phone:</p> {userData.phoneNumber}
+                  <p>{Text.PHONE}</p> {userData.phoneNumber}
                 </span>
                 <span>
-                  <p>Email:</p> {userData.email}
+                  <p>{Text.EMAIL}</p> {userData.email}
                 </span>
                 <span>
-                  <p>Age:</p> {userData.age} years
+                  <p>{Text.AGE}</p> {userData.age} {Text.YEAR}
                 </span>
                 <span>
-                  <p>Gender:</p> {userData.gender}
+                  <p>{Text.GENDER}</p> {userData.gender}
                 </span>
               </div>
               <div className="other-detail">
-                <h4>Other Information</h4>
+                <h4>{Text.INFO}</h4>
                 <span>
-                  <p>Male Pattern Hair Loss Stage:</p> {userData.stage}
+                  <p>{Text.STAGE}</p> {userData.stage}
                 </span>
                 <span>
-                  <p>Family History:</p> {userData.familyHistory}
+                  <p>{Text.FAMILY_HISTORY}</p> {userData.familyHistory}
                 </span>
                 <span>
-                  <p> Dandruff Status:</p> {userData.dandruffStatus}
+                  <p>{Text.DANDRUFF_STATUS}</p> {userData.dandruffStatus}
                 </span>
                 <span>
-                  <p>Sleep Status:</p>
+                  <p>{Text.SLEEP_STATUS}</p>
                   {userData.sleepStatus}
                 </span>
               </div>
             </div>
             <div className="uploaded-images">
-              <div className="text-style">Uploaded Image</div>
+              <div className="text-style">{Text.UPLOADED_IMG}</div>
               <div>
                 <img src={userData.uploadedImage} alt="" />
               </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTrayaAppContext } from "../../Container/ContextProvider";
-
+import { Text, stages } from "../../Helper/Helper";
 import "./StagesCard.css";
 
 export const StagesCard = ({
@@ -9,25 +9,6 @@ export const StagesCard = ({
   increaseProgress,
 }) => {
   const { updateUserData } = useTrayaAppContext();
-
-  const stages = [
-    {
-      text: "Stage-1",
-      url: "https://form.traya.health/_next/static/media/stage2.89ee6681.svg",
-    },
-    {
-      text: "Stage-2",
-      url: "https://form.traya.health/_next/static/media/stage1.ded3ad2d.svg",
-    },
-    {
-      text: "Stage-3",
-      url: "https://form.traya.health/_next/static/media/stage4.ae5d18a6.svg",
-    },
-    {
-      text: "Stage-4",
-      url: "https://form.traya.health/_next/static/media/stage6.fded0280.svg",
-    },
-  ];
 
   const handleClick = (text) => {
     setStageSelection(false);
@@ -38,7 +19,7 @@ export const StagesCard = ({
   return (
     <div className="stages-card-main">
       <div className="stages-label">
-        <span>Which image best describes your hair loss?</span>
+        <span>{Text.STAGE_LABEL}</span>
       </div>
       <div className="stages-card-container">
         {stages.map((stage, index) => (

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TrayaHairTestApp/static/css/main.096223b6.css",
+    "main.js": "/TrayaHairTestApp/static/js/main.a3c3b21b.js",
+    "index.html": "/TrayaHairTestApp/index.html",
+    "main.096223b6.css.map": "/TrayaHairTestApp/static/css/main.096223b6.css.map",
+    "main.a3c3b21b.js.map": "/TrayaHairTestApp/static/js/main.a3c3b21b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.096223b6.css",
+    "static/js/main.a3c3b21b.js"
+  ]
+}
